@@ -33,18 +33,9 @@ def listfiles(folder):
     for dirpath, filename in tqdm(walkdir(folder)):
         # files_to_process = os.path.join(dirpath, filename)
         type_of_img = re.split("_", filename)
-        print(type_of_img[0])
+        # print(type_of_img[0])
         if type_of_img[0] == "train":
-            train_list
-        # img = keras.utils.load_img(files_to_process, target_size=input_size)
-        # img_array = keras.preprocessing.image.img_to_array(img)
-        # img_array = np.expand_dims(img_array, axis=0)
-        # prediction = model.predict(img_array)
-        # predicted_class = class_names[np.argmax(prediction)]
-    #     pred_list.append(predicted_class)
-    #     _, true_label = os.path.split(dirpath)
-    #     class_list.append(true_label)
-    # predictions = pred_list
-    # labels = class_list
+            train_list.append(filename)
+    print(f"The total amount of training files are {len(train_list)}")
 
     # return predictions, labels
