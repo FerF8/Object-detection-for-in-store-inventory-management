@@ -5,3 +5,4 @@ annotations/annotations_train.csv
 annotations/annotations_val.csv
 annotations/readme.txt
 images
+utils/__pycache__/utils.cpython-39.pyc
