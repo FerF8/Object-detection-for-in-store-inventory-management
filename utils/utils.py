@@ -29,13 +29,20 @@ def listfiles(folder):
     get the list of files inlcuded in the dataset
     """
     train_list = []
-    class_list = []
+    test_list = []
+    val_list = []
     for dirpath, filename in tqdm(walkdir(folder)):
         # files_to_process = os.path.join(dirpath, filename)
         type_of_img = re.split("_", filename)
         # print(type_of_img[0])
         if type_of_img[0] == "train":
             train_list.append(filename)
-    print(f"The total amount of training files are {len(train_list)}")
+        if type_of_img[0] == "test":
+            test_list.append(filename)
+        if type_of_img[0] == "val":
+            val_list.append(filename)
+    print(f"The total amount of TRAIN files are {len(train_list)}")
+    print(f"The total amount of VALIDATION files are {len(val_list)}")
+    print(f"The total amount of TEST files are {len(test_list)}")
 
-    # return predictions, labels
+    return train_list, test_list, val_list
